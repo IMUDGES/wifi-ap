@@ -1,0 +1,25 @@
+{
+  "name": "wifi-ap",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "debug": "supervisor ./bin/www",
+    "mongo-": "mongod --dbpath D:\\Mongodb\\data\\db\\ --logpath D:\\Mongodb\\log\\data.log --logappend"
+  },
+  "dependencies": {
+    "async": "^2.4.1",
+    "body-parser": "~1.17.1",
+    "connect": "^3.6.2",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "express-session": "^1.15.3",
+    "mongoose": "^4.10.5",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2",
+    "vue": "^2.4.2"
+  }
+}
