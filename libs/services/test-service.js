@@ -22,7 +22,16 @@ class test_service {
         })
     }
 
+    insertMany(data,callback){
+        test_model.insertMany(data,(err,docs)=>{})
+    }
+
 
 }
+let service=new test_service()
 
-module.exports = new test_service()
+
+
+service.insertMany()
+
+module.exports = service
