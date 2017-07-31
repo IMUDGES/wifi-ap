@@ -8,7 +8,7 @@ let opt={
         authdb: config.db
     }
 }
-mongoose.Promise=global.Promise
+mongoose.Promise=Promise
 mongoose.connect(config.url);
 
 module.exports=mongoose

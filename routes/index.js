@@ -11,18 +11,21 @@ let express = require('express'),
 router.get('/', (req, res, next) => {
     res.render('index', {title: 'Express'})
 })
+router.post('/',(req,res)=>{
+    res.json({data:'sdsd'})
+})
 router.post('/upload',upload.single('data'), (req, res,next) => {
     "use strict";
     let fileName=req.file.filename
-    saveService.saveData(fileName,(error,result)=>{
+    saveService.save(fileName,(error,result)=>{
       if (error){
-          res.send({
+          res.json({
               status:false,
               msg:error.message
           })
       }
       else {
-          res.send({
+          res.json({
               status:true,
               msg:'save data success'
           })
