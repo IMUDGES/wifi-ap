@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 router.post('/',(req,res)=>{
     res.json({data:'sdsd'})
 })
-router.post('/upload',upload.single('data'), (req, res,next) => {
+router.post('/uploads',upload.single('data'), (req, res,next) => {
     "use strict";
     let fileName=req.file.filename
     saveService.save(fileName,(error,result)=>{

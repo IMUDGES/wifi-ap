@@ -3,7 +3,6 @@ let fs = require('fs'),
     buffer = require('buffer'),
     DataModel = require('../dbs/models/dataModel')
 
-console.log(1)
 class SaveService {
 
     constructor() {
@@ -40,16 +39,17 @@ class SaveService {
     //将数据写入数据库
     saveData(data, callback) {
         async.mapLimit(data, 5, (dataBranch, callback) => {
-            DataModel.insertMany(dataBranch,(err)=>{
-                if (err){
+            DataModel.insertMany(dataBranch, (err) => {
+                if (err) {
                     //UnhandledPromiseRejectionWarning handle
-                    process.on('unhandledRejection', err => {})
+                    process.on('unhandledRejection', err => {
+                    })
 
-                    let msg=err._message
-                    for(let item in err.errors){
-                        msg+='/'+err.errors[item].message
+                    let msg = err._message
+                    for (let item in err.errors) {
+                        msg += '/' + err.errors[item].message
                     }
-                    err=new Error(msg)
+                    err = new Error(msg)
                     callback(err)
                 }
                 else callback(null)
@@ -64,7 +64,7 @@ class SaveService {
             },
             //将数据写入数据库
             (data, callback) => {
-                this.saveData(data,(err)=>callback(err))
+                this.saveData(data, (err) => callback(err))
             }
         ], (err, res) => {
             callback(err, res)
