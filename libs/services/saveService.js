@@ -64,12 +64,15 @@ class SaveService {
             },
             //将数据写入数据库
             (data, callback) => {
+            console.log(data)
                 this.saveData(data, (err) => callback(err))
             }
         ], (err, res) => {
             callback(err, res)
         })
     }
+
+    saveMap()
 
 }
 

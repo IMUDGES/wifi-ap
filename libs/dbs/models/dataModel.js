@@ -27,19 +27,28 @@ let dataSchema = new moogoose.Schema({
             index: true
         },
         //wifi 频率
-        frequency:{
-            type:Number,
-            index:true
+        frequency: {
+            type: Number,
+            index: true
         }
     }],
     //采集日期
     date: {
         type: Date,
         default: new Date().getTime()
+    },
+    //采集点坐标
+    point: {
+        x: Number,
+        y: Number
+    },
+    //地图ID
+    mapID: {
+        type: String
     }
 
 })
-dataSchema.path('APs').validate((v)=>{
+dataSchema.path('APs').validate((v) => {
     "use strict";
     return v.length
 })

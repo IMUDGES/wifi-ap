@@ -2,3 +2,5 @@
 node_modules
 libs1/dbs/config.js
 libs/test
+public/maps
+
